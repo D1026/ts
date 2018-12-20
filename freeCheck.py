@@ -19,6 +19,6 @@ import numpy as np
 # ------------------------------------------------
 se = pd.Series(np.arange(10), index=[1, 2, 3, 4, 4, 5, 6, 7, 8, 9])
 print(len(se))
-print(se[4])
+print(se[4])    # index值重复， series[index] 返回类型为 Series, 否则返回单元素，类型同dtype
 print(len(se[4]))
 print(pd.Series)
