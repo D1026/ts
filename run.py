@@ -45,11 +45,11 @@ for k in cputs_Dic.keys():
     vm_ts = cputs_Dic[k]
     print(len(vm_ts))
     print(len(vm_ts.index.unique()))    # <class 'pandas.core.indexes.datetimes.DatetimeIndex'>
-    for i in vm_ts.index:
-        if isinstance(vm_ts[i], pd.Series):
-            print(vm_ts[i])
-    exit(777)
-    converted = vm_ts.asfreq('45Min', method='pad')
+    # for i in vm_ts.index:
+    #     if isinstance(vm_ts[i], pd.Series):
+    #         print(vm_ts[i])
+    vm_ts = vm_ts.drop_duplicates()
+    converted = vm_ts.asfreq('6Min', method='pad')
     print(converted)
     # print(vm_ts.isnull())
     # vm_ts = vm_ts.ffill()
