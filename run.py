@@ -52,5 +52,18 @@ for k in cputs_Dic.keys():
     converted = vm_ts.asfreq('6Min', method='pad')
     print(converted)
     # print(vm_ts.isnull())
-    # vm_ts = vm_ts.ffill()
-    # print(vm_ts.isnull())
+    cputs_Dic[k] = converted
+
+# ----------- 时间序列清洗完毕，生成训练数据 ------------------
+samplesDic = {}
+for k in cputs_Dic.keys():
+    smps = []
+    ts = cputs_Dic[k]
+    for i in range(len(ts)-(48*6+6)+1):
+        x = ts[i:i+480].values
+        y = ts[i+480:i+490].max()
+        smps.append((x, y))
+    samplesDic[k] = smps
+
+with open('vm_cpuData.pkl', mode='wb') as f:
+    pickle.dump(samplesDic, f)

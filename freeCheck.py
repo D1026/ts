@@ -17,8 +17,36 @@ import numpy as np
 # print(converted.head())
 
 # ------------------------------------------------
-se = pd.Series(np.arange(10), index=[1, 2, 3, 4, 4, 5, 6, 7, 8, 9])
-print(len(se))
-print(se[4])    # index值重复， series[index] 返回类型为 Series, 否则返回单元素，类型同dtype
-print(len(se[4]))
-print(pd.Series)
+# se = pd.Series(np.arange(10), index=[1, 2, 3, 4, 4, 5, 6, 7, 8, 9])
+# print(len(se))
+# print(se[4])    # index值重复， series[index] 返回类型为 Series, 否则返回单元素，类型同dtype
+# print(len(se[4]))
+# print(pd.Series)
+# print(type(se[1:3]))
+# print(se[1:3])
+
+# -----------------------------------------------------
+# se = pd.Series(np.arange(10), index=[1, 2, 3, 4, 4, 5, 6, 7, 8, 9])
+# print(se.max())
+# print(type(se[0:3].values))
+# 使用切片 series [ x: y]时，x,y 为默认0-(len-1) 的下标，不管指定的index 是自然数还是什么
+
+# --------------------------------------------------------
+
+a = pd.Series(np.arange(10))
+b = []
+for i in range(len(a)-1):
+    x = a[i:i+1].values
+    y = a[i+1]
+    b.append((x, y))
+print(b)
+
+# b = a[0:3].values
+# print(b)
+# c.append(b)
+# print(c)
+# a[1] = 888
+# print(c)
+# b[1] = 666
+# print(a)
+# print(c)
