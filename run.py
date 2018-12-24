@@ -61,9 +61,13 @@ for k in cputs_Dic.keys():
     ts = cputs_Dic[k]
     for i in range(len(ts)-(48*6+6)+1):
         x = ts[i:i+480].values
+        x = x/100
         y = ts[i+480:i+490].max()
+        y = y/100
         smps.append((x, y))
     samplesDic[k] = smps
 
-with open('vm_cpuData.pkl', mode='wb') as f:
+
+
+with open('vm_cpuDataNormal.pkl', mode='wb') as f:
     pickle.dump(samplesDic, f)

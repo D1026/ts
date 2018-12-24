@@ -33,13 +33,13 @@ import numpy as np
 
 # --------------------------------------------------------
 
-a = pd.Series(np.arange(10))
-b = []
-for i in range(len(a)-1):
-    x = a[i:i+1].values
-    y = a[i+1]
-    b.append((x, y))
-print(b)
+# a = pd.Series(np.arange(10))
+# b = []
+# for i in range(len(a)-1):
+#     x = a[i:i+1].values
+#     y = a[i+1]
+#     b.append((x, y))
+# print(b)
 
 # b = a[0:3].values
 # print(b)
@@ -50,3 +50,8 @@ print(b)
 # b[1] = 666
 # print(a)
 # print(c)
+
+# -------------------------
+a = np.array(range(10))
+print(a)
+print(a/10)
