@@ -52,6 +52,14 @@ import numpy as np
 # print(c)
 
 # -------------------------
-a = np.array(range(10))
-print(a)
-print(a/10)
+# a = np.array(range(10))
+# print(a)
+# print(a/10)
+
+# -------------------------
+import tensorflow as tf
+a = tf.constant([1.0, 2.0, 3.0])
+b = tf.constant([0.1, 0.2, 0.3])
+with tf.Session() as sess:
+    print(sess.run(a))
+    print(sess.run((a-b)))

@@ -54,6 +54,9 @@ for k in cputs_Dic.keys():
     # print(vm_ts.isnull())
     cputs_Dic[k] = converted
 
+with open('vm_cputs_cleaned.pkl', mode='wb') as f:
+    pickle.dump(cputs_Dic, f)
+
 # ----------- 时间序列清洗完毕，生成训练数据 ------------------
 samplesDic = {}
 for k in cputs_Dic.keys():
