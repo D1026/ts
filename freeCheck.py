@@ -26,9 +26,11 @@ import numpy as np
 # print(se[1:3])
 
 # -----------------------------------------------------
-# se = pd.Series(np.arange(10), index=[1, 2, 3, 4, 4, 5, 6, 7, 8, 9])
-# print(se.max())
-# print(type(se[0:3].values))
+se = pd.Series(np.arange(10), index=[1, 2, 3, 4, 4, 5, 6, 7, 8, 9])
+print(se.max())
+print(se.values)
+print(se[0:3].values)
+print(type(se[0:3].values))
 # 使用切片 series [ x: y]时，x,y 为默认0-(len-1) 的下标，不管指定的index 是自然数还是什么
 
 # --------------------------------------------------------
@@ -65,6 +67,34 @@ import numpy as np
 #     print(sess.run((a-b)))
 
 # --------------------
-a = [(1, 2), (3, 4)]
-for (x, y) in a:    # for x, y in a:
-    print(x, y)
+# a = [(1, 2), (3, 4)]
+# for (x, y) in a:    # for x, y in a:
+#     print(x, y)
+
+# # ------------------------
+# import pickle
+# with open('data/27', mode='rb') as f:
+#     (train_x, test_x, train_y, test_y) = pickle.load(f)
+#
+# count = 0
+# for row in train_x:
+#     if len(row) != 480:
+#         print(len(row))
+#         count = count+1
+# print(count)
+#
+# print(len(train_x), len(train_x[0]), train_x[0][0])
+# print(type(train_x[0]))
+# # print(train_x[0])
+#
+# print(np.array(train_x).shape)
+
+# -----------------
+# a = [[1, 2, 3],
+#      [4, 5, 6]]
+# c = [np.array([1, 2, 3]),
+#      np.array([4, 5, 6])]
+# b = np.array(a)
+# d = np.array(c)
+# print(b.shape)
+# print(d.shape)

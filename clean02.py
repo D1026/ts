@@ -62,8 +62,13 @@ samplesDic = {}
 for k in cputs_Dic.keys():
     smps = []
     ts = cputs_Dic[k]
-    for i in range(len(ts)-(48*6+6)+1):
+    for i in range(len(ts)):
+        if (i+490) == len(ts):
+            break
         x = ts[i:i+480].values
+        # ---- check ----
+        if len(x) != 480:
+            print('------', i)
         x = x/100
         y = ts[i+480:i+490].max()
         y = y/100
