@@ -21,8 +21,19 @@ def acc(y_true, y_pred):
     d = K.abs(tf.add(y_true, tf.negative(y_pred)))
     return K.mean(K.cast(K.greater(0.1, d), K.floatx()))
 
+
+def precision(y_true, y_pred):
+    h_true = K.greater(y_true, 0.80)
+    h_pred = K.greater(y_pred, 0.80)
+    all = tf.reduce_sum(K.cast(h_true, K.floatx()))
+    find = tf.reduce_sum(K.cast(h_pred, K.floatx()) * K.cast(h_true, K.floatx()))
+    if all == 0:
+        print('-------')
+    return (find+K.epsilon())/(all+K.epsilon())
+
+
 model = getModel()
-model.compile(optimizer='RMSprop', loss='mean_squared_error', metrics=[acc])
+model.compile(optimizer='RMSprop', loss='mean_squared_error', metrics=[acc, precision])
 
 
 # --------------------------- train --------------------------------
